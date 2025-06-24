@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relative Calc</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Relative Calc</h1>
+    <form>
+        <p>
+            Creates a formula for responsive design<br>
+            that dynamically changes the size of Y as<br>
+            screen width is being changed. 
+        </p>
+        <label for="w-max">W max</label>
+        <input id="w-max" type="number" min="0">
+        <label for="w-min">W min</label>
+        <input id="w-min" type="number" min="0">
+        <br>
+        <label for="y-max">Y max</label>
+        <input id="y-max" type="number" min="0">
+        <label for="y-min">Y min</label>
+        <input id="y-min" type="number" min="0">
+        <br><br>
+        <button onclick="calc()" type="button">Calculate</button>
+        <p id="result"></p>
+    </form>
+    <script src="../script.js"></script>
+</body>
+</html>
