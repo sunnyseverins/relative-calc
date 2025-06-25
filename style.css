@@ -10,7 +10,6 @@ input {
 body {
     max-width: 1000px;
     margin: auto;
-    background-color: white;
 }
 .flex {
     display: flex;
@@ -34,6 +33,7 @@ button {
     border-radius: 5px;
     padding: 5px 10px;
     background-color: rgba(200, 200, 200, 0.5);
+    cursor: pointer;
 }
 button.dark-mode {
     display: block;

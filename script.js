@@ -61,12 +61,13 @@ function calc() {
     }
 }
 function switchTheme() {
-    if (document.body.style.backgroundColor === "white") {
-        console.log("smth");
+    console.log(document.body.style.backgroundColor);
+    if (document.body.style.backgroundColor == "white" || document.body.style.backgroundColor == "") {
         document.body.style.backgroundColor = "black";
         document.body.style.color = "#aaaaaa";
     } else {
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
     }
+    
 }
