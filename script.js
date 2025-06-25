@@ -21,7 +21,7 @@ function calc() {
         const b = w_max * k - y_max;
         result += `\n Results:`
         if (b === 0) return result += `\ncalc(${a}vw)`;
-        result += `\n calc(${a.toFixed(2)}vw ${(b < 0) ? "+" : "-"} ${Math.abs(b.toFixed(2))}px)`;
+        result += `\n calc(${a.toFixed(2)}vw ${(b < 0) ? "+" : "-"} ${Math.abs(b.toFixed(2))}px); /*${y_max}-${y_min} until w${w_min}*/`;
         result += `\n \xA0or \xA0${a.toFixed(4)} & ${Math.abs(b.toFixed(4))}`;
     }
     function longFormula() {
