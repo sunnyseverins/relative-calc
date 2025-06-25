@@ -20,7 +20,7 @@ function calc() {
         const a = 100 * k;
         const b = w_max * k - y_max;
         result += `\n Results:`
-        if (b === 0) return result += `\ncalc(${a}vw)`;
+        if (b === 0) return result += `\ncalc(${a.toFixed(4)}vw); /*${y_max}-${y_min} until w${w_min}*/`;
         result += `\n calc(${a.toFixed(2)}vw ${(b < 0) ? "+" : "-"} ${Math.abs(b.toFixed(2))}px); /*${y_max}-${y_min} until w${w_min}*/`;
         result += `\n \xA0or \xA0${a.toFixed(4)} & ${Math.abs(b.toFixed(4))}`;
     }

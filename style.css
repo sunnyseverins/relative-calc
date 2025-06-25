@@ -6,3 +6,34 @@ input {
     width: 100px;
     margin-right: 20px;
 }
+body {
+    max-width: 1000px;
+    margin: auto;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: auto;
+}
+.flex > div {
+    flex: 0 0 50%;
+}
+@media (max-width: 1040px) {
+    body {
+        width: calc(100% - 40px)
+    }
+}
+@media (max-width: 900px) {
+    .flex {
+        width: 60%;
+    }
+}
+@media (max-width: 800px) {
+    * {
+        font-size: calc(2.33vw + 5.67px); /*22-15 until w400*/
+    }
+    .flex {
+        width: calc(19.00vw + 304px); /*456-380 until w400*/
+    }
+}
