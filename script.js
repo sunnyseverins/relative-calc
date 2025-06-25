@@ -4,8 +4,10 @@ function calc() {
     const y_max = +document.getElementById("y-max").value;
     const y_min = +document.getElementById("y-min").value;
 
-    if (!(isFinite(w_max) && isFinite(w_min) && isFinite(y_max) && isFinite(y_min)))
+    if (!(isFinite(w_max) && isFinite(w_min) && isFinite(y_max) && isFinite(y_min)) || (w_max === w_min))
         return document.getElementById("result").innerText = "Invalid data";
+    if (y_max === y_min)
+        return document.getElementById("result").innerText = `'${y_min}px;' will do.`;
     if (w_max <= w_min) 
         return document.getElementById("result").innerText = "W max must be bigger than W min";
 
@@ -20,7 +22,7 @@ function calc() {
         const a = 100 * k;
         const b = w_max * k - y_max;
         result += `\n Results:`
-        if (b === 0) return result += `\ncalc(${a.toFixed(4)}vw); /*${y_max}-${y_min} until w${w_min}*/`;
+        if (b === 0) return result += `\ncalc(${((a === Math.trunc(a)) ? a : a.toFixed(2))}vw); /*${y_max}-${y_min} until w${w_min}*/`;
         result += `\n calc(${a.toFixed(2)}vw ${(b < 0) ? "+" : "-"} ${Math.abs(b.toFixed(2))}px); /*${y_max}-${y_min} until w${w_min}*/`;
         result += `\n \xA0or \xA0${a.toFixed(4)} & ${Math.abs(b.toFixed(4))}`;
     }
@@ -56,5 +58,15 @@ function calc() {
         let dFull = Math.trunc(d / (e / divisorForD));
     
         result += `\n\xA0or\n ${c}vw / ${e / divisorForC} ${(dRemainder / e === 0) ? "" : (dRemainder < 0) ? `+ ${-dRemainder} / ${(e / divisorForD)} ` : `- ${dRemainder} / ${(e / divisorForD)} `}${(y_max === dFull) ? "" : (y_max - dFull < 0) ? ` - ${dFull - y_max}` : ` + ${y_max - dFull}`}`;
+    }
+}
+function switchTheme() {
+    if (document.body.style.backgroundColor === "white") {
+        console.log("smth");
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "#aaaaaa";
+    } else {
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
     }
 }

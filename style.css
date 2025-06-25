@@ -5,10 +5,12 @@
 input {
     width: 100px;
     margin-right: 20px;
+    background-color: rgba(200, 200, 200, 0.7);
 }
 body {
     max-width: 1000px;
     margin: auto;
+    background-color: white;
 }
 .flex {
     display: flex;
@@ -18,6 +20,27 @@ body {
 }
 .flex > div {
     flex: 0 0 50%;
+}
+.calc-button {
+    width: 250px;
+    margin: auto;
+}
+.result {
+    width: 600px;
+    margin: auto;
+}
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: rgba(200, 200, 200, 0.5);
+}
+button.dark-mode {
+    display: block;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    opacity: 0.2;
 }
 @media (max-width: 1040px) {
     body {
