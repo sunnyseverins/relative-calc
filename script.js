@@ -1,13 +1,13 @@
 function calc() {
     const w_max = +document.getElementById("w-max").value;
     const w_min = +document.getElementById("w-min").value;
-    const y_max = +document.getElementById("y-max").value;
-    const y_min = +document.getElementById("y-min").value;
+    const x_max = +document.getElementById("x-max").value;
+    const x_min = +document.getElementById("x-min").value;
 
-    if (!(isFinite(w_max) && isFinite(w_min) && isFinite(y_max) && isFinite(y_min)) || (w_max === w_min))
+    if (!(isFinite(w_max) && isFinite(w_min) && isFinite(x_max) && isFinite(x_min)) || (w_max === w_min))
         return document.getElementById("result").innerText = "Invalid data";
-    if (y_max === y_min)
-        return document.getElementById("result").innerText = `'${y_min}px;' will do.`;
+    if (x_max === x_min)
+        return document.getElementById("result").innerText = `'${x_min}px;' will do.`;
     if (w_max <= w_min) 
         return document.getElementById("result").innerText = "W max must be bigger than W min";
 
@@ -17,18 +17,18 @@ function calc() {
     document.getElementById("result").innerText = result;
 
     function shortFormula() {
-        const k = (y_max - y_min) / (w_max - w_min);
+        const k = (x_max - x_min) / (w_max - w_min);
         if (!isFinite(k) || k === 0) return document.getElementById("result").innerText = "Invalid data";
         const a = 100 * k;
-        const b = w_max * k - y_max;
+        const b = w_max * k - x_max;
         result += `\n Results:`
-        if (b === 0) return result += `\ncalc(${((a === Math.trunc(a)) ? a : a.toFixed(2))}vw); /*${y_max}-${y_min} until w${w_min}*/`;
-        result += `\n calc(${a.toFixed(2)}vw ${(b < 0) ? "+" : "-"} ${Math.abs(b.toFixed(2))}px); /*${y_max}-${y_min} until w${w_min}*/`;
+        if (b === 0) return result += `\ncalc(${((a === Math.trunc(a)) ? a : a.toFixed(2))}vw); /*${x_max}-${x_min} until w${w_min}*/`;
+        result += `\n calc(${a.toFixed(2)}vw ${(b < 0) ? "+" : "-"} ${Math.abs(b.toFixed(2))}px); /*${x_max}-${x_min} until w${w_min}*/`;
         result += `\n \xA0or \xA0${a.toFixed(4)} & ${Math.abs(b.toFixed(4))}`;
     }
     function longFormula() {
-        let c = (y_max - y_min) * 100;
-        let d = (y_max - y_min) * w_max;
+        let c = (x_max - x_min) * 100;
+        let d = (x_max - x_min) * w_max;
         let e = w_max - w_min;
 
         let eCopy = e; 
@@ -56,8 +56,8 @@ function calc() {
         
         let dRemainder = d % (e / divisorForD);
         let dFull = Math.trunc(d / (e / divisorForD));
-    
-        result += `\n\xA0or\n ${c}vw / ${e / divisorForC} ${(dRemainder / e === 0) ? "" : (dRemainder < 0) ? `+ ${-dRemainder} / ${(e / divisorForD)} ` : `- ${dRemainder} / ${(e / divisorForD)} `}${(y_max === dFull) ? "" : (y_max - dFull < 0) ? ` - ${dFull - y_max}` : ` + ${y_max - dFull}`}`;
+        // dont try to understand, I do neither
+        result += `\n\xA0or\n ${c}vw / ${e / divisorForC} ${(dRemainder / e === 0) ? "" : (dRemainder < 0) ? `+ ${-dRemainder} / ${(e / divisorForD)} ` : `- ${dRemainder} / ${(e / divisorForD)} `}${(x_max === dFull) ? "" : (x_max - dFull < 0) ? ` - ${dFull - x_max}` : ` + ${x_max - dFull}`}`;
     }
 }
 function switchTheme() {

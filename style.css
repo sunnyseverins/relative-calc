@@ -1,33 +1,45 @@
-* {
-    font-size: 24px;
-    font-family: monospace;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 24px;
 }
+
+body {
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
 input {
     width: 100px;
     margin-right: 20px;
     background-color: rgba(200, 200, 200, 0.7);
 }
-body {
-    max-width: 1000px;
-    margin: auto;
-}
+
 .flex {
     display: flex;
     flex-wrap: wrap;
+    margin: 20px auto 5px;
     width: 60%;
-    margin: auto;
 }
 .flex > div {
     flex: 0 0 50%;
+    width: fit-content;
 }
+
 .calc-button {
-    width: 250px;
+    width: fit-content;
     margin: auto;
 }
+
 .result {
     width: 600px;
     margin: auto;
 }
+
 button {
     border: none;
     border-radius: 5px;
@@ -42,14 +54,10 @@ button.dark-mode {
     bottom: 20px;
     opacity: 0.2;
 }
-@media (max-width: 1040px) {
+
+@media (max-width: 1250px) {
     body {
-        width: calc(100% - 40px)
-    }
-}
-@media (max-width: 900px) {
-    .flex {
-        width: 60%;
+        width: 80%;
     }
 }
 @media (max-width: 800px) {
@@ -57,6 +65,20 @@ button.dark-mode {
         font-size: calc(2.33vw + 5.67px); /*22-15 until w400*/
     }
     .flex {
-        width: calc(19.00vw + 304px); /*456-380 until w400*/
+        width: calc(18.67vw + 306.67px); /*456-400 until w500*/
+
     }
+    .flex > div {
+        flex: 0 0 auto;
+        margin: auto;
+    }
+}
+@media (max-width: 500px) {
+    .flex {
+        width: calc(6.67vw + 166.67px); /*200-180 until w200*/
+    }
+    .flex > div {
+        margin: 3px auto;
+    }
+    
 }

@@ -10,8 +10,8 @@
     <h1>Relative Calc</h1>
     <form>
         <p class="intro">
-            Input Y for max and min width to calculate
-            a formula for Y in between those variables.
+            Input W for max and min width to calculate
+            a formula for X in between those variables.
         </p>
         <div class="flex">
             <div>
@@ -23,17 +23,17 @@
                 <input id="w-min" type="number" min="0" placeholder="0">
             </div>
             <div>
-                <label for="y-max">Y max</label>
-                <input id="y-max" type="number" min="0" placeholder="0">
+                <label for="x-max">Y max</label>
+                <input id="x-max" type="number" min="0" placeholder="0">
             </div>
             <div>
-                <label for="y-min">Y min</label>
-                <input id="y-min" type="number" min="0" placeholder="0">
+                <label for="x-min">Y min</label>
+                <input id="x-min" type="number" min="0" placeholder="0">
             </div>
         </div>
         <br>
         <div class="calc-button">
-            <button onclick="calc()" type="button">Calculate</button>
+            <button type="button" onclick="calc()">Calculate</button>
         </div>
         <div class="result">
             <p id="result" style="font-size: 90%; font-weight: bold;"></p>
